@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/20190109/interavtive/tour_main/src/main/java/com/mama/tour/biz/impl/GoodsCompImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/learning/springbootDemo/andy/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/optimize/test/tour_main/src/main/java/com/mama/tour/biz/page/impl/MainServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/optimize/test/tour_main/src/main/java/com/mama/tour/controller/PublicController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/optimize/test/tour_main/src/main/java/com/mama/tour/dao/GoodsDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/optimize/test/tour_main/src/main/java/com/mama/tour/dao/impl/GoodsDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/optimize/test/tour_main/src/main/java/com/mama/tour/model/vo/TourGoodsInfoVo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/poster/master_20190129__/tour_main/src/main/java/com/mama/tour/biz/impl/RestServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/poster/master_20190129__/tour_main/src/main/java/com/mama/tour/controller/rest/RestController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/poster/master_20190129__/tour_main/src/main/java/com/mama/tour/order/OrderController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/andy/ProducerMain.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/andy/domain/Spittle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/andy/domain/TourAdmin.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/andy/service/impl/rabbitMQServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/amqp-producer.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/amqp-share.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/applicationContext.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/applicationContext.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/db.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/jdbcTemplateDao.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/mqProducer.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/quartz.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/rabbitMQ.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/rabbitmq.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/springmvc.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/xdao.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/TestR.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/supplier/20190114/src/main/webapp/commonPraise.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/toolbox/20190201__price/toolbox/src/main/java/com/toolbox/mq/PurchasePriceMessageConsumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/toolbox/20190201__price/toolbox/src/main/resources/debug/applicationContext.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/toolbox/20190201__price/toolbox/src/main/resources/debug/rabbitMq.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/toolbox/20190201__price/toolbox/src/test/java/MQTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/wx/master_20190124/tour_main/src/main/java/com/mama/tour/controller/rest/RestController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

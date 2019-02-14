@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/rabbit
+                http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+
+    <!-- 加载配置文件 -->
+    <context:property-placeholder  ignore-unresolvable="true" location="classpath:*.properties"/>
+    <rabbit:connection-factory id="connectionFactory" host="${TOOLBOX_RABBITMQ_MASTER_A_SERVER}"
+                               port="${TOOLBOX_RABBITMQ_MASTER_A_PORT}"
+                               username="${TOOLBOX_RABBITMQ_MASTER_A_USER}"
+                               password="${TOOLBOX_RABBITMQ_MASTER_A_PASSWORD}"
+                               virtual-host="${TOOLBOX_RABBITMQ_MASTER_A_VHOST}"
+                               channel-cache-size="50"/>
+
+    <!--通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成 -->
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+
+
+    <!--
+        durable 是否持久化
+        exclusive 仅创建者可以使用的私有队列，断开后自动删除
+        auto-delete 当所有消费端连接断开后，是否自动删除队列 -->
+    <!-- exchange queue binging key 绑定   -->
+    <rabbit:topic-exchange name="goods.events" durable="true" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="purchasePrice" pattern="event.tuor.*"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+    <!-- queue 队列声明-->
+    <rabbit:queue id="purchasePrice" durable="true" auto-delete="true" exclusive="false" name="purchasePrice"/>
+
+    <!--消费者-->
+    <bean id="rabbitMQServiceImpl" class="com.andy.service.impl.rabbitMQServiceImpl"/>
+    <!-- queue litener 观察 监听模式 当有消息到达时会通知监听在对应的队列上的监听对象-->
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <rabbit:listener queues="purchasePrice" ref="rabbitMQServiceImpl" method="onMessage"/>
+    </rabbit:listener-container>
+
+
+    <!--定义rabbit template用于数据的接收和发送 -->
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" />
+
+</beans>

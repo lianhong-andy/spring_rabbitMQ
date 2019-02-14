@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/rabbit
+                http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd">
+    <!-- 加载配置文件 -->
+    <!--<context:property-placeholder location="classpath:application.properties"/>-->
+
+    <!-- 连接服务配置  -->
+    <rabbit:connection-factory id="rabbitConnectionFactory" host="${TOOLBOX_RABBITMQ_MASTER_A_SERVER}"
+                               username="${TOOLBOX_RABBITMQ_MASTER_A_USER}"
+                               password="${TOOLBOX_RABBITMQ_MASTER_A_PASSWORD}" port="${TOOLBOX_RABBITMQ_MASTER_A_PORT}"
+                               virtual-host="${TOOLBOX_RABBITMQ_MASTER_A_VHOST}"/>
+
+    <rabbit:admin connection-factory="rabbitConnectionFactory"/>
+
+
+    <!-- exchange queue binging key 绑定   -->
+    <rabbit:topic-exchange name="goods.events" durable="true" auto-delete="false">
+        <rabbit:bindings>
+            <rabbit:binding queue="purchasePrice" pattern="event.tuor.100"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+    <!-- queue 队列声明-->
+    <rabbit:queue id="purchasePrice" durable="true" auto-delete="true" exclusive="false" name="purchasePrice"/>
+
+    <!--消费者-->
+    <bean id="rabbitMQServiceImpl" class="com.andy.service.impl.rabbitMQServiceImpl"/>
+    <!-- queue litener 观察 监听模式 当有消息到达时会通知监听在对应的队列上的监听对象-->
+    <rabbit:listener-container connection-factory="rabbitConnectionFactory" acknowledge="auto">
+        <rabbit:listener queues="purchasePrice" ref="rabbitMQServiceImpl" method="onMessage"/>
+    </rabbit:listener-container>
+</beans>
