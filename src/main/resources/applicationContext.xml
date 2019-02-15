@@ -38,6 +38,7 @@
     <import resource="amqp-share.xml"/>
     <!--<import resource="amqp-producer.xml"/>-->
     <!--<import resource="rabbitmq.xml"/>-->
+    <import resource="quartz.xml"/>
 
 
 </beans>

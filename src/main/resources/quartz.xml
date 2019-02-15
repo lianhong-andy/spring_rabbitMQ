@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task-3.0.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd"
+       default-autowire="byName">
+    <description>定时任务配置</description>
+    <task:annotation-driven />
+    <!-- TODO 定时任务统一写到一个类里  -->
+    <bean id="testQuartz" class="com.andy.quartz.TestQuartz">
+        <!--<property name="flowFacade" ref="flowFacade"/>-->
+    </bean>
+
+    <task:scheduled-tasks scheduler="tbScheduler">
+         <task:scheduled ref="testQuartz" method="process" cron="0 * * * * ?" />
+    </task:scheduled-tasks>
+    <task:scheduler id="tbScheduler" pool-size="10"/>
 
 
 </beans>

@@ -78,6 +78,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/andy/quartz/TestQuartz.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/andy/service/impl/rabbitMQServiceImpl.java">
           <value>
             <set />
@@ -159,6 +164,11 @@
           </value>
         </entry>
         <entry key="E:/toolbox/20190201__price/toolbox/src/main/java/com/toolbox/mq/PurchasePriceMessageConsumer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="E:/toolbox/20190201__price/toolbox/src/main/java/com/toolbox/quartz/finance/OrderInfoDayJob.java">
           <value>
             <set />
           </value>
