@@ -1,19 +1,15 @@
 import com.andy.dao.AdminDao;
-import com.andy.domain.Goods;
 import com.andy.domain.TourAdmin;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.io.BufferedReader;
@@ -25,15 +21,12 @@ import java.util.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @WebAppConfiguration
-public class TestR {
+public class TestQ {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-//    @Qualifier("jdbcTemplate2")
-//    private JdbcTemplate jdbcTemplate2;
-
     @Test
     public void testT(){
         StringBuilder sql = new StringBuilder();
@@ -122,10 +115,4 @@ public class TestR {
             System.out.println("signParams = " + signParams.get(s));
         }
     }
-
-//    @Test
-//    public void testTree(){
-//        List<Goods> query = jdbcTemplate2.query("SELECT * FROM goods)", new BeanPropertyRowMapper(Goods.class));
-//        System.out.println("query = " + query);
-//    }
 }
