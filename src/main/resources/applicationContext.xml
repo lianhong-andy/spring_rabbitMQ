@@ -40,16 +40,14 @@
 
     <import resource="xdao.xml"/>
     <import resource="jdbcTemplateDao.xml"/>
-    <import resource="amqp-share.xml"/>
+    <!--<import resource="amqp-share.xml"/>-->
     <!--<import resource="amqp-producer.xml"/>-->
     <!--<import resource="rabbitmq.xml"/>-->
     <import resource="quartz.xml"/>
 
     <mvc:interceptors>
 
-        <!-- 第三方推送过来的请求接口-验签拦截器 -->
         <mvc:interceptor>
-            <!-- 要出发推送过来的接口 -->
             <mvc:mapping path="/admin/findAll" />
             <ref bean="tokenInterceptor" />
         </mvc:interceptor>
