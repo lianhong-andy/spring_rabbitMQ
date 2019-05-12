@@ -21,15 +21,12 @@ import java.util.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @WebAppConfiguration
-public class TestR {
+public class TestQ {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-//    @Qualifier("jdbcTemplate2")
-//    private JdbcTemplate jdbcTemplate2;
-
     @Test
     public void testT(){
         StringBuilder sql = new StringBuilder();
@@ -118,28 +115,4 @@ public class TestR {
             System.out.println("signParams = " + signParams.get(s));
         }
     }
-
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        final Set<String> set = new TreeSet<>();
-        for (int i = 0; i < 100; i++) {
-            list.add("thread"+i);
-        }
-
-        for (final String s : list) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    set.add(s);
-                    System.out.println("s = " + s);
-                }
-            }).start();
-        }
-        int size = set.size();
-        System.out.println("size = " + size);
-        for (String s : set) {
-            System.out.println("s = " + s);
-        }
-    }
-
 }
