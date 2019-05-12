@@ -1,19 +1,15 @@
 import com.andy.dao.AdminDao;
-import com.andy.domain.Goods;
 import com.andy.domain.TourAdmin;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.io.BufferedReader;
@@ -123,9 +119,27 @@ public class TestR {
         }
     }
 
-//    @Test
-//    public void testTree(){
-//        List<Goods> query = jdbcTemplate2.query("SELECT * FROM goods)", new BeanPropertyRowMapper(Goods.class));
-//        System.out.println("query = " + query);
-//    }
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        final Set<String> set = new TreeSet<>();
+        for (int i = 0; i < 100; i++) {
+            list.add("thread"+i);
+        }
+
+        for (final String s : list) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    set.add(s);
+                    System.out.println("s = " + s);
+                }
+            }).start();
+        }
+        int size = set.size();
+        System.out.println("size = " + size);
+        for (String s : set) {
+            System.out.println("s = " + s);
+        }
+    }
+
 }
