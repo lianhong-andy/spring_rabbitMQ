@@ -18,6 +18,9 @@
     http://www.springframework.org/schema/task/spring-task-3.0.xsd
 	http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd"
        default-autowire="byName">
+
+    <!--<bean id="schedulerFactoryBean"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />-->
     <description>定时任务配置</description>
     <task:annotation-driven />
     <!-- TODO 定时任务统一写到一个类里  -->

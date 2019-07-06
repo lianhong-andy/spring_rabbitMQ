@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/admin")
 public class AdminController {
     private Logger logger = LoggerFactory.getLogger(AdminController.class);
+    private static final String TRACEID = "mmtraceid";
     @Autowired
     private AdminService adminService;
     @RequestMapping("/findAll")
@@ -23,6 +24,8 @@ public class AdminController {
     public PageVo findAll(HttpServletRequest request, TourAdmin tourAdmin){
         String requestURI = request.getRequestURI();
         StringBuffer requestURL = request.getRequestURL();
+        String traceId = request.getHeader(TRACEID);
+        logger.info(traceId);
         logger.info("requestURI:{} " , requestURI);
         logger.info("requestURL :{}" ,requestURL.toString());
         return adminService.findAll(tourAdmin);
