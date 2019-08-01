@@ -120,7 +120,7 @@ public class DataUtils {
 		}
 
 		while (i < size) {
-			List<T> subList = srcList.subList(i, divideFactor);
+			List<T> subList = srcList.subList(i, i+divideFactor);
 			rstList.add(subList);
 			i += divideFactor;
 
