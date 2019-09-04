@@ -29,4 +29,22 @@ public class AdminServiceImpl implements AdminService {
         vo.setTotal(count);
         return vo;
     }
+
+    @Override
+    public void testStrategyPattern(String taskType){
+        if ("BATCH_CHANGE_WAREHOUSE".equals(taskType)) {
+            //批量转仓逻辑
+        } else if ("BATCH_CHANGE_SHIPPING".equals(taskType)) {
+            //批量转快递逻辑
+        } else if ("BATCH_REPLACE_ORDER_GOODS".equals(taskType)) {
+            //批量替换订单商品逻辑
+        } else if ("BATCH_DELETE_ORDER_GOODS".equals(taskType)) {
+            //批量删除订单商品逻辑
+        } else if ("BATCH_ADD_MEMO".equals(taskType)) {
+            //批量添加备注逻辑
+        } else {
+            //任务类型未知
+            System.out.println("任务类型无法处理");
+        }
+    }
 }

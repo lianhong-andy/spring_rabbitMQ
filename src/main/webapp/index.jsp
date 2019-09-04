@@ -18,7 +18,7 @@
 
 
 <body>
-    <a href="/admin/findAll">点我</a>
+    <a href="/ssmTest-1.0-SNAPSHOT/admin/findAll">点我</a>
 </body>
 <script>
 </script>

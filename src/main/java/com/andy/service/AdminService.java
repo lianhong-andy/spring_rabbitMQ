@@ -11,4 +11,6 @@ public interface AdminService {
      * @return
      */
     PageVo findAll(TourAdmin tourAdmin);
+
+    void testStrategyPattern(String taskType);
 }
