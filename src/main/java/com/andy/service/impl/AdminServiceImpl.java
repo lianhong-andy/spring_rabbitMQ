@@ -19,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
         PageVo vo = new PageVo();
         Integer size = tourAdmin.getSize();
         if(size==null){
-            size=10;
+            size=100;
         }
         Integer page = tourAdmin.getPage()==null?0:(tourAdmin.getPage()-1)*size;
         List<TourAdmin> list = adminDao.findAll(page,size);
